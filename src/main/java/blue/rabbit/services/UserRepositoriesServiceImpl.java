@@ -51,7 +51,7 @@ public class UserRepositoriesServiceImpl implements UserRepositoriesService {
 
                 UserRepositoriesDataDTO userRepositoriesDataDTO = new UserRepositoriesDataDTO();
 
-                repositories.stream().filter(RepositoriesDTO::isFork).forEach(
+                repositories.stream().filter(repositoriesDTO -> !repositoriesDTO.isFork()).forEach(
                         repositoriesDTO -> {
                             userRepositoriesDataDTO.setUsername(username);
                             userRepositoriesDataDTO.setRepositoryName(repositoriesDTO.getName());
